@@ -7,17 +7,5 @@ export default defineConfig({
     react(),  // ← AGREGAR ESTO (es obligatorio para React)
     tailwindcss(),
   ],
-  base: './',
-  build: {
-    outDir: 'dist',
-    sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      },
-    },
-  },
-  server: {
-    port: 5173,
-  },
+ 
 })
