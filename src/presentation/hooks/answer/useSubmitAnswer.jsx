@@ -7,7 +7,7 @@ import { SubmitAnswerUseCase } from '../../../application/use-cases/answer/Submi
 const answerRepository = new AnswerRepositoryImpl();
 const submitAnswerUseCase = new SubmitAnswerUseCase(answerRepository);
 
-export function UseSubmitAnswer(votationId) {
+export function useSubmitAnswer(votationId) {
   const submitAnswer = useCallback(
     ({ answers }) => submitAnswerUseCase.execute({ votationId, answers }),
     [votationId]

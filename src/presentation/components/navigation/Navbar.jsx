@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { UseLogout } from '../../hooks/user/UseLogout.jsx';
-import { UseUnreadCount } from '../../hooks/notification/UseUnreadCount.jsx';
+import { useUnreadCount } from '../../hooks/notification/useUnreadCount.jsx';
 import { UseNotifications } from '../../hooks/notification/useNotifications.jsx';
 import { UseUserProfile } from '../../hooks/user/UseUserProfile.jsx';
 
@@ -11,7 +11,7 @@ import { UseUserProfile } from '../../hooks/user/UseUserProfile.jsx';
 export default function Navbar() {
   const navigate = useNavigate();
   const { execute: logout, loading: loggingOut } = UseLogout();
-  const { count: unreadCount } = UseUnreadCount();
+  const { count: unreadCount } = useUnreadCount();
   const { data: notificationsData } = UseNotifications(false); // Solo no leídas para el dropdown
 
   const { user : userData , loading : userLoading} = UseUserProfile();

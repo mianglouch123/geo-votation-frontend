@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UseUserProfile } from "../../hooks/user/UseUserProfile.jsx";
 import { UseViewVotation } from "../../hooks/votation/UseViewVotation.jsx";
-import { useSubmitAnswer } from "../../hooks/answer/useSubmitAnswer.jsx";
+import { useSubmitAnswer } from "../../hooks/answer/useSubmitAnswer.jsx"
 
 export default function PublicAnswerVotationView() {
   const navigate = useNavigate();
