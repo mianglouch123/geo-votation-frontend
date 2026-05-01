@@ -7,7 +7,7 @@ import { UpdateAnswerUseCase } from '../../../application/use-cases/answer/Updat
 const answerRepository = new AnswerRepositoryImpl();
 const updateAnswerUseCase = new UpdateAnswerUseCase(answerRepository);
 
-export function UseUpdateAnswer(votationId) {
+export function useUpdateAnswer(votationId) {
   const updateAnswer = useCallback(
     ({ answers }) => updateAnswerUseCase.execute({ votationId, answers }),
     [votationId]

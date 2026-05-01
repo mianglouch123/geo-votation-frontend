@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UseUserProfile } from "../../hooks/user/UseUserProfile.jsx";
 import { UseViewVotation } from "../../hooks/votation/UseViewVotation.jsx";
-import { UseSubmitAnswer } from "../../hooks/answer/UseSubmitAnswer.jsx";
+import { useSubmitAnswer } from "../../hooks/answer/useSubmitAnswer.jsx";
 
 export default function PublicAnswerVotationView() {
   const navigate = useNavigate();
   const { id } = useParams();
 
   const { user: dataUser, loading: loadingUserId } = UseUserProfile();
-  const { execute: submitAnswer, loading: loadingSubmitAnswer } = UseSubmitAnswer(id);
+  const { execute: submitAnswer, loading: loadingSubmitAnswer } = useSubmitAnswer(id);
   const { data: votationData, loading: loadingVotation } = UseViewVotation(id);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState([]);

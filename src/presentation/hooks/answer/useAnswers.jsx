@@ -8,7 +8,7 @@ import { AnswerRepositoryImpl } from "../../../infraestructure/repositories/Answ
 const answerRepository = new AnswerRepositoryImpl();
 const getAnswersUseCase = new GetAnswersUseCase(answerRepository);
 
-export function UseAnswers(votationId, questionId = null, userId = null) {
+export function useAnswers(votationId, questionId = null, userId = null) {
   const [searchEmail, setSearchEmail] = useState(undefined);
   const [searchPage, setSearchPage] = useState(1);  // ← NUEVO: página para búsqueda de usuarios
   

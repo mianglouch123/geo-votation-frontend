@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UseUserProfile } from "../../hooks/user/UseUserProfile.jsx";
 import { UseMyAnswers } from "../../hooks/answer/UseMyAnswer.jsx";
-import { UseUpdateAnswer } from "../../hooks/answer/UseUpdateAnswer.jsx";
+import { useUpdateAnswer } from "../../hooks/answer/useUpdateAnswer.jsx";
 
 export default function PublicUpdateAnswerVotationView() {
   const navigate = useNavigate();
   const { id } = useParams();
 
   const { user: dataUser, loading: loadingUserId } = UseUserProfile();
-  const { execute: updateAnswer, loading: loadingUpdateAnswer } = UseUpdateAnswer(id);
+  const { execute: updateAnswer, loading: loadingUpdateAnswer } = useUpdateAnswer(id);
   const { data: myAnswersData, loading: loadingMyAnswers } = UseMyAnswers(id, dataUser?.id);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState([]);

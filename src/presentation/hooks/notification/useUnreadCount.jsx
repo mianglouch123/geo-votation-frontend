@@ -6,7 +6,7 @@ import { GetUnreadCountUseCase } from '../../../application/use-cases/notificati
 const notificationRepository = new NotificationRepositoryImpl();
 const getUnreadCountUseCase = new GetUnreadCountUseCase(notificationRepository);
 
-export function UseUnreadCount() {
+export function useUnreadCount() {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
 

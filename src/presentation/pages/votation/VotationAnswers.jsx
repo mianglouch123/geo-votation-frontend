@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { UseVotation } from '../../hooks/votation/UseVotation.jsx';
 import Pagination from '../../hooks/common/Pagination.jsx';
-import { UseAnswers } from '../../hooks/answer/UseAnswers.jsx';
+import { useAnswers } from '../../hooks/answer/useAnswers.jsx';
 // Modal component
 function AnswerDetailModal({ answer, onClose }) {
   if (!answer) return null;
@@ -76,7 +76,7 @@ export default function VotationAnswers() {
     searchPage,
     nextSearchPage,
     prevSearchPage
-  } = UseAnswers(id);
+  } = useAnswers(id);
 
 
 

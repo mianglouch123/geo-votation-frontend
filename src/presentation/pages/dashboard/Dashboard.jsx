@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { UseDashboard } from '../../hooks/user/UseDashboard.jsx';
 import { UseAuthAccess } from '../../hooks/user/UseAuthAccess.jsx';
 import { UsePendingInvitations } from '../../hooks/invitation/useGetPendingInvitations.jsx';
-import { UseUnreadCount } from '../../hooks/notification/UseUnreadCount.jsx';
+import { useUnreadCount } from '../../hooks/notification/useUnreadCount.jsx';
 
 export default function Dashboard() {
   const { hasAccess, loading: authLoading } = UseAuthAccess();
   const { data: dashboardData, loading: dashboardLoading } = UseDashboard();
-  const { count: unreadCount } = UseUnreadCount();
+  const { count: unreadCount } = useUnreadCount();
   const { data: invitations } = UsePendingInvitations();
 
   const [greeting, setGreeting] = useState('');
