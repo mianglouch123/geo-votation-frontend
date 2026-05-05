@@ -22,7 +22,7 @@ export default function PublicUpdateAnswerVotationView() {
         votationId: id,
         questionId: q.question.id,
         questionVersion: q.question.version,
-        value: initializeValueFromAnswer(q.question.type, q.answer, q.question.config)
+        value: initializeValueFromAnswer(q.question.type, q.answer, q.question.config || {})
       }));
       setFormData(initialFormData);
     }
@@ -38,14 +38,14 @@ export default function PublicUpdateAnswerVotationView() {
       }
       
       case 'DATE': {
-        const existingDate = answer?.value || answer;
+        const existingDate = answer?.value || config
         return { date: existingDate || config?.date || new Date().toISOString().split('T')[0] };
       }
       
       case 'HOUR': {
         const existingValue = answer?.value || config
         const existingHour = existingValue?.hour || (typeof answer === 'string' ? answer.split(':')[0] : null);
-        const existingMin = existingValue?.minute || (typeof answer === 'string' ? answer.split(':')[1] : null);
+        const existingMin = existingValue?.min || (typeof answer === 'string' ? answer.split(':')[1] : null);
         return {
           hour: existingHour || config?.hour || new Date().getHours().toString().padStart(2, '0'),
           min: existingMin || config?.min || new Date().getMinutes().toString().padStart(2, '0')
@@ -181,7 +181,7 @@ export default function PublicUpdateAnswerVotationView() {
         value: item.value
       }))
     };
-
+  
     try {
       await updateAnswer(payload);
       alert("¡Respuestas actualizadas correctamente!");
